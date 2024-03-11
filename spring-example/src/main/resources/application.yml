@@ -1,0 +1,33 @@
+management:
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: '*'
+
+  metrics:
+    tags:
+      dc: idc
+      env: prod
+      business: ordering
+      system: OC
+      service: order-service
+      instance: order-service-1234
+  prometheus:
+    metrics:
+      export:
+        pushgateway:
+          base-url: http://127.0.0.1:9091
+          shutdown-operation: push
+          push-rate: 5s
+          grouping-key:
+            instance: ${management.metrics.tags.instance}
+          enabled: true
+          job: ${management.metrics.tags.business}-${management.metrics.tags.system}-${management.metrics.tags.service}
+
+server:
+  tomcat:
+    mbeanregistry:
+      enabled: true
+
+
