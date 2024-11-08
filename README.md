@@ -11,4 +11,5 @@ This is an example of an application pushing metrics data to pushgateway and Pro
 * https://github.com/prometheus/pushgateway
 * https://grafana.com/grafana/dashboards/4701-jvm-micrometer
 * https://docs.micrometer.io/micrometer/reference/implementations/prometheus.html
+* https://prometheus.github.io/client_java/exporters/pushgateway/
 
